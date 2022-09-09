@@ -5,7 +5,7 @@ LABEL lp-service-id=dotcom-frontend-2
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 COPY package.json package-lock.json ./ 
-RUN npm ci --legacy-peer-deps
+RUN npm ci
 
 # Rebuild the source code only when needed
 FROM node:16-alpine AS builder
@@ -22,7 +22,7 @@ ENV NEXT_TELEMETRY_DISABLED 1
 RUN npm run build
 
 # trim down node modules to just what is needed for production
-RUN npm prune --production --legacy-peer-deps
+RUN npm prune --production
 
 # Production image, copy all the files and run next
 FROM node:16-alpine AS runner
