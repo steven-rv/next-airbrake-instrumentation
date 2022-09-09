@@ -6,12 +6,12 @@ const transport = {
       target: "pino-airbrake-transport",
       options: {
         airbrake: {
-          projectId: process.env.AIRBRAKE_PROJECT_ID || 123,
-          projectKey: process.env.AIRBRAKE_KEY || "test",
+          projectId: process.env.AIRBRAKE_PROJECT_ID,
+          projectKey: process.env.AIRBRAKE_KEY,
           environment: "production",
         },
       },
-      level: "error", // minimum log level that should be sent to airbrake
+      level: "info", // minimum log level that should be sent to airbrake
     },
     {
       target: "pino-pretty",
