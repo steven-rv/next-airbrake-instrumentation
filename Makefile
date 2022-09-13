@@ -37,8 +37,6 @@ clean: rm-containers rm-images rm-networks
 .PHONY: rm-containers rm-images cp-env
 
 cp-env:
-	@rm -rf .env
-	@cp -n .env.example .env
 	@echo "NEXT_PUBLIC_COMMIT_HASH=`git rev-parse HEAD`" >> .env
 
 rm-containers:
