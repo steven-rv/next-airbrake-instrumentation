@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:logger": "NODE_OPTIONS=' -r next-logger' next dev",
     "build": "next build",
     "build:dev": "next build && npm run copy:static && npm run copy:logger",
     "start": "next start",
